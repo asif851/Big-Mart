@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+input[type=submit] {
+  width: 30%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+  
+}
+
+div {
+  border-radius: 5px;
+  background-color: WhiteSmoke;
+  padding: 20px;
+  text-align: center;
+  margin:14px auto;
+  
+  
+
+}
+
+
+h1 {
+  
+  text-align: center;
+  background-color:Teal;
+  width:60%;
+  margin: 0px auto;
+  display; block;
+
+}
+h2 {
+  
+  color: WhiteSmoke;
+}
+
+
+input[type=text] {
+  width: 50%;
+  padding: 8px 5px;
+  margin: 10px 0;
+  box-sizing: border-box;
+
+
+}
+
+body{
+
+  background-color: Teal;
+}
+select{
+     width:10%;
+
+  }
+
+</style>
+
+
+
+<body> 
+  <h2>Machine Learning Application</h2>
+ <div class="login">
+    
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<h1>Predict Sales</h1>
+    <input type="text" name="Item_Weight" placeholder="Item_Weight" required="required" />
+
+    <br>
+    <input type="text" name="Item_Visibility" placeholder="Item_Visibility" required="required" />
+    
+
+    <br>  
+    <label for="Item_Fat_Content">Item_Fat_Content:</label>
+    <select name="Item_Fat_Content" id="Item_Fat_Content">
+    <option value="0">Low Fat</option>
+    <option value="1">Regular</option>
+    </select>
+
+
+    <label for="Item_Type">Item_Type:</label>
+    <select name="Item_Type" id="Item_Type">
+    <option value="0">Baking Goods</option>
+    <option value="1">Breads</option>
+    <option value="2">Breakfast</option>
+    <option value="3">Canned</option>
+    <option value="4">Dairy</option>
+    <option value="5">Frozen Foods</option>
+    <option value="6">Fruits and Vegetables</option>
+    <option value="7">Hard Drinks</option>
+    <option value="8">Health and Hygiene</option>
+    <option value="9">Household</option>
+    <option value="10">Meat</option>
+    <option value="11">Others</option>
+    <option value=12>Seafood</option>
+    <option value="13">Snack Foods</option>
+    <option value="14">Soft Drinks</option>
+    <option value="15">Starchy Foods</option>
+    </select>
+
+    
+     <br>
+
+    <input type="text" name="Item_MRP" placeholder="Item_MRP" required="required" />
+    <br>
+    <input type="text" name="Outlet_Establishment_Year" placeholder="Outlet_Establishment_Year" required="required" />
+
+     <br>  
+    <label for="Outlet_Size">Outlet_Size:</label>
+    <select name="Outlet_Size" id="Outlet_Size">
+	<option value="0">High</option>
+    <option value="1">Medium</option>
+    <option value="2">Small</option>
+	</select>
+
+
+    <label for="Outlet_Location_Type">Outlet_Location_Type:</label>
+    <select name="Outlet_Location_Type" id="Outlet_Location_Type">
+    <option value="1">Tier 1</option>
+    <option value="2">Tier 2</option>
+    <option value="3">Tier 3</option>
+	</select>
+
+	<br>  
+    <label for="Outlet_Type">Outlet_Type:</label>
+    <select name="Outlet_Type" id="Outlet_Type">
+    <option value="0">Grocery Store</option>
+    <option value="1">Supermarket Type1</option>
+    <option value="2">Supermarket Type2</option>
+    <option value="3">Supermarket Type3</option>
+	</select>
+	<br>
+
+    <input type="submit" value="Submit">
+    </form>
+
+   <br>
+    <h3>Sales will be {{ prediction }}</h3>
+ </div>
+
+
+</body>
+</html>
